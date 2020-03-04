@@ -8,6 +8,11 @@
 <%@posts.each do |p|%>
 <p>Titile: <%= p.body%></p>
 <p>Body: <%= p.body%></p><br>
+<% if logged_in? %>
+<p>Created by: <%= p.user.name%></p><br>
+<%else%>
+  <%= link_to  "Login to See the post author", signin_path %> <br>
+<% end %>
 ____________________
 <%end%>
 
