@@ -4,5 +4,5 @@ class User < ApplicationRecord
   validates :email, presence: true, length: { minimum: 5, maximum: 50 }, format: { with: VALIDATE_EMAIL_REGEX },
                     uniqueness: { case_sensitive: false }
   has_secure_password
-  validates :password, presence: true, length: {minimum: 5, maximum: 20}
+  validates :password, presence: true, length: { minimum: 5, maximum: 20 }
 end
