@@ -5,6 +5,13 @@ class SessionsController < ApplicationController
 
   def create
     user = User.find_by(email: params[:session][:email].downcase)
-    puts user.name
+    if user&.authenticate(params[:session][:password])
+      login_user(user)
+      puts 'logged in '
+    # redirect_to user_path
+    else
+      puts 'Error email or password not incorrect'
+      redirect_to 'new'
+    end
   end
 end
