@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
     if user&.authenticate(params[:session][:password])
       login_user(user)
       puts "you've been logged in "
-    # redirect_to user_path
+      redirect_to posts_path
     else
       puts 'Error email or password not incorrect'
       redirect_to 'new'

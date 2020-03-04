@@ -1,4 +1,10 @@
 <%= form_for @post do |f| %>
+  <%if @post.errors.any?%>
+    <%@post.errors.full_messages.each do |er|%>
+    <p><%=er%></p>
+    <%end%>
+  <%end%>
+
   <%= f.label :title, "title:" %>
   <%= f.text_field :title %> <br>
   <%= f.label :body, "body:" %>
